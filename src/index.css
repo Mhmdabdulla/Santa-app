@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Mountains+of+Christmas:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #0f172a;
+  --color-festive-gold: #ffd700;
+  --color-santa-red: #d42426;
+  --font-christmas: "Mountains of Christmas", cursive;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer utilities {
+  .glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .5;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #020024 0%, #090979 35%, #00d4ff 100%);
+  @apply min-h-screen text-white font-body overflow-x-hidden;
+  /* Re-applying gradient via utility if needed, but standard CSS is fine here */
+  background: linear-gradient(to bottom, #020024, #090979, #0f172a);
+}
+
+/* Snow Animation */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial;
+  text-shadow: 0 0 1px #000;
+  user-select: none;
+  z-index: 0;
+  pointer-events: none;
+  animation: snowfall 10s linear infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* Stars Shimmer */
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: shimmer 2s infinite ease-in-out alternate;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
