@@ -8,15 +8,34 @@ export default function PolaroidReveal({ deed }) {
     const cardRef = useRef(null);
 
     const handleDownload = async () => {
+
         if (cardRef.current) {
-            const canvas = await html2canvas(cardRef.current, {
-                backgroundColor: null,
-                scale: 2, // Higher quality
-            });
-            const link = document.createElement('a');
-            link.download = 'santas-gift-of-kindness.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
+            try {
+                // 1. Give it a tiny delay to ensure everything is rendered
+                const canvas = await html2canvas(cardRef.current, {
+                    useCORS: true,         // IMPORTANT: Allows capturing external images
+                    allowTaint: true,      // Allows capturing "tainted" images
+                    backgroundColor: "#ffffff", // Better than null for file saving
+                    scale: 2,
+                    logging: false,        // Keeps your console clean
+                });
+
+                const dataUrl = canvas.toDataURL('image/png', 1.0);
+
+                // 2. Use a more robust download method
+                const link = document.createElement('a');
+                link.style.display = 'none';
+                link.href = dataUrl;
+                link.download = `santa-reward-2025.png`;
+
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+            } catch (error) {
+                console.error("Download failed:", error);
+                alert("Oops! Santa's camera jammed. Please try again!");
+            }
         }
     };
 
