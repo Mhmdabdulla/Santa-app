@@ -5,16 +5,29 @@ import InputCard from './components/InputCard';
 import Processing from './components/Processing';
 import PolaroidReveal from './components/PolaroidReveal';
 import BackgroundMusic from './components/AudioPlayer';
+import SleighGame from './components/SleighGame';
 
 function App() {
-  const [phase, setPhase] = useState('input'); // input, processing, reveal
+  const [phase, setPhase] = useState('input'); // input, game, reveal
   const [deed, setDeed] = useState('');
+
+  /* 
+     Update flow: 
+     Input -> Game -> Processing (3s) -> Reveal 
+  */
 
   const handleDeedSubmit = (userDeed) => {
     setDeed(userDeed);
+    // Transition to game instead of processing/reveal
+    setPhase('game');
+  };
+
+  const handleGameComplete = () => {
+    // Show "Checking list..." state
     setPhase('processing');
   };
 
+  // Restore Processing -> Reveal transition
   useEffect(() => {
     if (phase === 'processing') {
       const timer = setTimeout(() => {
@@ -79,13 +92,17 @@ function App() {
         />
       ))}
 
-      <BackgroundMusic />
+      <BackgroundMusic playbackRate={phase === 'game' ? 1.2 : 1.0} />
 
       <AnimatePresence mode="wait">
         {phase === 'input' && (
           <motion.div key="input" exit={{ opacity: 0, y: -20 }} className="z-10 w-full flex justify-center">
             <InputCard onSubmit={handleDeedSubmit} />
           </motion.div>
+        )}
+
+        {phase === 'game' && (
+          <SleighGame onComplete={handleGameComplete} />
         )}
 
         {phase === 'processing' && (
