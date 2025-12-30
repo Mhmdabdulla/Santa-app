@@ -1,10 +1,8 @@
-# 🎅 KindnessClaus: A Magical North Pole Experience
+# 🎅 Santa-App: A Magical North Pole Experience
 
 A beautifully crafted React application that celebrates the spirit of giving. Users share their "Good Deeds," and through a cinematic sequence of animations and music, they receive a personalized gift card from Santa himself.
 
-![License](https://img.shields.io/badge/license-MIT-red)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
 
 ## ✨ The Experience
 
@@ -26,5 +24,5 @@ A beautifully crafted React application that celebrates the spirit of giving. Us
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/kindness-claus.git
+   git clone https://github.com/your-username/Santa-App.git
    ```

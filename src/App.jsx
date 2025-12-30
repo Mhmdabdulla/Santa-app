@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { AnimatePresence, motion } from 'framer-motion';
-import AudioPlayer from './components/AudioPlayer';
 import InputCard from './components/InputCard';
 import Processing from './components/Processing';
 import PolaroidReveal from './components/PolaroidReveal';
+import BackgroundMusic from './components/AudioPlayer';
 
 function App() {
   const [phase, setPhase] = useState('input'); // input, processing, reveal
@@ -79,7 +79,7 @@ function App() {
         />
       ))}
 
-      <AudioPlayer />
+      <BackgroundMusic />
 
       <AnimatePresence mode="wait">
         {phase === 'input' && (
