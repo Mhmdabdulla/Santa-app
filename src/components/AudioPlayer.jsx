@@ -1,12 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 
-const BackgroundMusic = () => {
+const BackgroundMusic = ({ playbackRate = 1.0 }) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(null);
 
     // Using a royalty-free Christmas track/loop
     const MUSIC_URL = "https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc508520.mp3?filename=christmas-background-music-124965.mp3";
+
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.playbackRate = playbackRate;
+        }
+    }, [playbackRate]);
 
     useEffect(() => {
         const audio = audioRef.current;

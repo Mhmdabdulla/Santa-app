@@ -47,5 +47,8 @@ A beautifully crafted React application that celebrates the spirit of giving. Us
 ![Checking List](public/assets/screenshot-2.png)
 *Santa checks his list...*
 
+![Sleigh Loader Game](public/assets/screenshot-game.png)
+*Help Santa load the sleigh!*
+
 ![Gift Certificate](public/assets/screenshot-3.png)
 *Your personalized North Pole Certification!*
