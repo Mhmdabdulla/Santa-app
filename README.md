@@ -26,3 +26,26 @@ A beautifully crafted React application that celebrates the spirit of giving. Us
    ```bash
    git clone https://github.com/your-username/Santa-App.git
    ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to the local URL (usually `http://localhost:5173`).
+
+## 📸 Screenshots
+
+![Nice List Question](public/assets/screenshot-1.png)
+*Tell Santa your good deed...*
+
+![Checking List](public/assets/screenshot-2.png)
+*Santa checks his list...*
+
+![Gift Certificate](public/assets/screenshot-3.png)
+*Your personalized North Pole Certification!*
